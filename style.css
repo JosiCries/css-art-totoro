@@ -1,0 +1,884 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  /* Sign Colors */
+  --signGrey: #676f82;
+  --signBlue: #375d8e;
+  --signLightBlue: #8391ac;
+  --signWriting: #222530;
+
+  /*Totoro Colors*/
+  --totoroBase: #6d6a63;
+  --totoroBelly: #a39372;
+  --totoroNose: #40413c;
+  --totoroNails: #424c4e;
+  --totoroWhiskers: #030000;
+  --totoroEyesBlack: #040500;
+  --totoroEyesWhite: #d7d3d0;
+  --totoroLeaf: #8e9f69;
+
+  /*Umbrella Colors*/
+  --umbrellaBase: #323435;
+  --umbrellaBaseLighter1: #393a3a;
+  --umbrellaBaseLighter2: #3e3f3f;
+  --umbrellaMetal: #979795;
+  --umbrellaHandle: #393b38;
+
+  /*Background Colors*/
+  --bglight: #202020;
+  --bgdark: #111119;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  /*background: linear-gradient(to bottom, var(--bglight), var(--bgdark));*/
+  background: var(--bgdark);
+}
+
+div {
+  position: absolute;
+}
+
+.wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sceneWrapper {
+  width: 70%;
+  aspect-ratio: 7/4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.totoroWrapper {
+  height: 100%;
+  aspect-ratio: 6/8;
+}
+
+.signWrapper {
+  height: 70%;
+  aspect-ratio: 1.5/4;
+  left: 4%;
+  bottom: 0%;
+  display: flex;
+  justify-content: center;
+}
+
+.signBase {
+  width: 80%;
+  height: 15%;
+  bottom: 0;
+}
+
+.signBase::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 38%;
+  background: var(--signGrey);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.signBase::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 65%;
+  bottom: 0;
+  background: var(--signGrey);
+  border-radius: 10%;
+}
+
+.signPole {
+  width: 7%;
+  height: 60%;
+  border-radius: 30%;
+  background: var(--signGrey);
+  bottom: 12%;
+}
+
+.signBoard {
+  width: 22%;
+  height: 16%;
+  background: var(--signGrey);
+  top: 40%;
+}
+
+.signBoard::before {
+  content: "";
+  position: absolute;
+  border: 2px solid var(--signWriting);
+  width: 70%;
+  height: 80%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(
+      transparent 15%,
+      var(--signWriting) 15% 20%,
+      transparent 20% 25%,
+      var(--signWriting) 25% 30%,
+      transparent 30% 35%,
+      var(--signWriting) 35% 40%,
+      transparent 40% 45%,
+      var(--signWriting) 45% 50%,
+      transparent 50% 55%,
+      var(--signWriting) 55% 60%,
+      transparent 60% 65%,
+      var(--signWriting) 65% 70%,
+      transparent 70% 75%,
+      var(--signWriting) 75% 80%,
+      transparent 80% 85%,
+      var(--signWriting) 85% 90%,
+      transparent 90%
+    )
+    40% 0 /80% 100% no-repeat;
+}
+
+.signPlate {
+  width: 80%;
+  height: 30%;
+  border-radius: 50%;
+  background: linear-gradient(
+      var(--signBlue) 35%,
+      var(--signLightBlue) 30% 65%,
+      var(--signBlue) 60%
+    )
+    0 0 /100% 100% no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signPlateText {
+  width: 75%;
+  overflow: hidden;
+}
+
+.signPlateText.top {
+  height: 19%;
+  top: 15%;
+  background: url("./img/SignTop.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.signPlateText.middle {
+  height: 19%;
+  top: 41%;
+  background: url("./img/SignMiddle.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.signPlateText.bottom {
+  height: 34%;
+  bottom: 2%;
+  background: url("./img/SignBottom.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.totoroEar {
+  width: 10%;
+  height: 12%;
+}
+
+.totoroEar::after {
+  content: "";
+  position: absolute;
+  background: var(--totoroBase);
+  width: 50%;
+  height: 30%;
+  top: 65%;
+  left: 27%;
+}
+
+.totoroEar::before {
+  content: "";
+  position: absolute;
+  background: var(--totoroBase);
+  width: 100%;
+  aspect-ratio: 1/1;
+  top: 15%;
+  left: 4%;
+  border-top-left-radius: 80%;
+  border-bottom-left-radius: 45%;
+  border-bottom-right-radius: 80%;
+  rotate: -43deg;
+}
+
+.totoroEar.left {
+  rotate: -15deg;
+  left: 32%;
+  top: 11%;
+}
+
+.totoroEar.right {
+  rotate: 17deg;
+  right: 28%;
+  top: 11%;
+}
+
+.totoroBody {
+  display: block;
+  width: 75%;
+  height: 79%;
+  background: var(--totoroBase);
+  top: 20%;
+  left: 14.5%;
+  border-radius: 50% 50% 35% 35% / 90% 90% 40% 40%;
+  overflow: hidden;
+}
+
+.totoroBody::after {
+  content: "";
+  position: absolute;
+  bottom: -1.5%;
+  left: 47.8%;
+  width: 5%;
+  aspect-ratio: 1 / cos(30deg);
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  background: var(--bgdark);
+}
+
+.totoroEye {
+  width: 7%;
+  height: 6%;
+  border-radius: 50%;
+  background: var(--totoroEyesWhite);
+  overflow: hidden;
+  animation: blink 5s infinite;
+  transform-origin: center center;
+}
+
+.totoroEye::before {
+  content: "";
+  position: absolute;
+  width: 40%;
+  height: 40%;
+  border-radius: 50%;
+  background: var(--totoroEyesBlack);
+  top: 30%;
+  left: 30%;
+}
+
+.totoroEye::after {
+  content: "";
+  position: absolute;
+  width: 15%;
+  height: 15%;
+  border-radius: 50%;
+  background: var(--totoroEyesWhite);
+  top: 30%;
+  left: 50%;
+}
+
+.totoroEye.left {
+  top: 26.5%;
+  left: 34.3%;
+  /*rotate:9deg;*/
+}
+
+.totoroEye.right {
+  top: 26.5%;
+  right: 30.5%;
+  /*rotate:-13deg;*/
+}
+
+@keyframes blink {
+  0%,
+  90%,
+  100% {
+    transform: scaleY(1);
+  }
+  95% {
+    transform: scaleY(0.1);
+  }
+}
+
+.totoroNose {
+  width: 10%;
+  aspect-ratio: 2/1;
+  background: var(--totoroNose);
+  top: 28%;
+  left: 47%;
+  rotate: 13deg;
+  border-radius: 100% 40%;
+  overflow: hidden;
+}
+
+.totoroNose::after {
+  width: 25%;
+  aspect-ratio: 1/1;
+  position: absolute;
+  content: "";
+  border-radius: 50%;
+  background: var(--totoroWhiskers);
+  bottom: -25%;
+  left: 18%;
+}
+
+.totoroNose::before {
+  width: 25%;
+  aspect-ratio: 1/1;
+  position: absolute;
+  content: "";
+  border-radius: 50%;
+  background: var(--totoroWhiskers);
+  bottom: 0;
+  right: 5%;
+}
+
+.totoroMouth {
+  width: 2.3%;
+  height: 0.3%;
+  background: var(--totoroWhiskers);
+  left: 50.7%;
+  top: 37.9%;
+}
+
+.totoroWhisker {
+  width: 17.3%;
+  height: 0.4%;
+  background: var(--totoroWhiskers);
+}
+
+.totoroWhisker.wl2 {
+  left: 14.5%;
+  top: 35.5%;
+  rotate: -2deg;
+}
+
+.totoroWhisker.wl1 {
+  left: 17%;
+  top: 32.2%;
+  rotate: 11deg;
+}
+
+.totoroWhisker.wl3 {
+  left: 17%;
+  top: 38.7%;
+  rotate: -11deg;
+}
+
+.totoroWhisker.wr2 {
+  right: 10.2%;
+  top: 34.6%;
+  rotate: -5deg;
+}
+
+.totoroWhisker.wr1 {
+  right: 12.8%;
+  top: 31.8%;
+  rotate: -15deg;
+}
+
+.totoroWhisker.wr3 {
+  right: 9.9%;
+  top: 37.7%;
+  rotate: 8deg;
+}
+
+.leaf {
+  width: 22.5%;
+  height: 4%;
+
+  left: 41%;
+  top: 17.6%;
+}
+
+.leaf.base {
+  border-radius: 100% 50%;
+  rotate: 4deg;
+  background: var(--totoroLeaf);
+  width: 22.5%;
+  height: 4%;
+}
+
+.leaf.base::before {
+  content: "";
+  position: absolute;
+  width: 40%;
+  height: 130%;
+  border-radius: 50%;
+  background: var(--totoroLeaf);
+  left: 15%;
+  top: 10%;
+}
+
+.leaf.base::after {
+  content: "";
+  position: absolute;
+  width: 32%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--totoroLeaf);
+  right: 1%;
+  top: 19%;
+  rotate: 130deg;
+}
+
+.leaf.hole {
+  background: var(--totoroBase);
+  width: 3.7%;
+  height: 3%;
+  border-radius: 50%;
+  left: 52.9%;
+  top: 20%;
+}
+
+.totoroBelly {
+  display: block;
+  width: 68%;
+  height: 56%;
+  background: var(--totoroBelly);
+
+  left: 17%;
+  top: 41.5%;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  rotate: 180deg;
+}
+
+.totoroMarking {
+  rotate: -180deg;
+  width: 13%;
+  height: 6%;
+}
+
+.totoroMarking::before,
+.totoroMarking::after {
+  content: "";
+  position: absolute;
+  background: var(--totoroBase);
+  border-radius: 40%;
+  display: block;
+  top: -5%;
+  height: 120%;
+  width: 30%;
+}
+
+.totoroMarking::before {
+  left: 55%;
+  transform: rotate(-55deg);
+}
+
+.totoroMarking::after {
+  right: 55%;
+  transform: rotate(55deg);
+}
+
+.totoroMarking.m1 {
+  right: 37%;
+  bottom: 6%;
+}
+
+.totoroMarking.m2 {
+  bottom: 11%;
+  right: 16%;
+  rotate: 160deg;
+}
+
+.totoroMarking.m3 {
+  bottom: 6%;
+  right: 59%;
+  rotate: 195deg;
+}
+
+.totoroMarking.m4 {
+  bottom: 30%;
+  right: 4%;
+  rotate: 160deg;
+}
+
+.totoroMarking.m5 {
+  bottom: 24%;
+  right: 25%;
+  rotate: 170deg;
+  transform: scale(1.1);
+}
+
+.totoroMarking.m6 {
+  bottom: 21.5%;
+  right: 47.5%;
+  rotate: 177deg;
+  transform: scale(1.25);
+}
+
+.totoroMarking.m7 {
+  bottom: 23%;
+  left: 18%;
+  rotate: 187deg;
+  transform: scale(1.25);
+}
+
+.totoroMarking.m8 {
+  bottom: 27.5%;
+  left: 2%;
+  rotate: 200deg;
+}
+
+.totoroArm {
+  border-radius: 100% 0% 60% 40% / 60% 0% 100% 30%;
+  background: var(--totoroBase);
+}
+
+.totoroArm.left {
+  width: 13%;
+  height: 35%;
+  top: 41.5%;
+  left: 9.8%;
+  rotate: 4deg;
+}
+
+.totoroArm.right {
+  width: 35%;
+  height: 18%;
+  transform: scaleY(-1);
+  border-radius: 100% 0% 60% 20% / 80% 0% 100% 30%;
+  right: 8.5%;
+  top: 40%;
+  rotate: 11deg;
+  border: 1px solid var(--totoroNails);
+}
+
+.totoroNails {
+  width: 5%;
+  height: 1.2%;
+  border-radius: 100% 0% 60% 40% / 60% 0% 100% 40%;
+  background: var(--totoroNails);
+}
+
+.totoroNails.r1 {
+  right: 38.5%;
+  top: 38.5%;
+  rotate: -165deg;
+}
+
+.totoroNails.r2 {
+  right: 39.5%;
+  top: 39.5%;
+  rotate: -160deg;
+}
+
+.totoroNails.r3 {
+  right: 40%;
+  top: 41.1%;
+  rotate: -190deg;
+}
+
+.totoroNails.r4 {
+  right: 40%;
+  top: 42%;
+  rotate: -160deg;
+}
+
+.totoroNails.l1 {
+  left: 11.5%;
+  top: 77%;
+  rotate: 92deg;
+}
+
+.totoroNails.l2 {
+  left: 9.8%;
+  top: 77%;
+  rotate: 110deg;
+}
+
+.totoroNails.l3 {
+  left: 8.3%;
+  top: 76%;
+  rotate: 110deg;
+}
+
+.totoroNails.feetR1 {
+  bottom: 0.3%;
+  right: 23%;
+  rotate: 35deg;
+}
+
+.totoroNails.feetR2 {
+  bottom: 0.3%;
+  right: 25.5%;
+  rotate: 18deg;
+}
+
+.totoroNails.feetR3 {
+  bottom: 0.1%;
+  right: 29.8%;
+  rotate: 18deg;
+}
+
+.totoroNails.feetL1 {
+  bottom: 0.7%;
+  left: 27%;
+  rotate: -21deg;
+  transform: scaleX(-1);
+}
+
+.totoroNails.feetL2 {
+  bottom: 0.5%;
+  left: 30%;
+  rotate: -21deg;
+  transform: scaleX(-1);
+}
+
+.totoroNails.feetL3 {
+  bottom: 0.2%;
+  left: 33.5%;
+  rotate: -23deg;
+  transform: scaleX(-1);
+}
+
+.umbrellaWrapper {
+  width: 66.3%;
+  height: 45.9%;
+  right: 8.2%;
+}
+
+.umbrellaPole {
+  width: 1.5%;
+  height: 60%;
+  background: var(--umbrellaMetal);
+  left: 49.5%;
+  top: 19%;
+}
+
+.umbrellaHandle {
+  width: 3%;
+  height: 12%;
+  background: var(--umbrellaHandle);
+  left: 48.8%;
+  bottom: 10%;
+}
+
+.umbrellaHandle::before {
+  content: "";
+  position: absolute;
+  rotate: 180deg;
+  background: radial-gradient(transparent 30%, var(--umbrellaHandle) 30%) 0 0/100%
+    170% no-repeat;
+  width: 350%;
+  height: 95%;
+  left: -253%;
+  bottom: -90%;
+  border-top-left-radius: 100%;
+  border-top-right-radius: 100%;
+  border-bottom: 0;
+}
+
+.umbrellaTopWrapper {
+  width: 100%;
+  height: 34%;
+}
+
+.umbrella {
+  background: var(--umbrellaBase);
+}
+
+.umbrella.nop {
+  width: 2%;
+  height: 8%;
+  left: 49%;
+  border-radius: 50%;
+}
+
+.umbrella.topFront {
+  width: 100%;
+  height: 74%;
+  top: 6%;
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+}
+
+.umbrella.topFront::before::after {
+  content: "";
+  position: absolute;
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+}
+
+.umbrella.topFront::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 17%;
+  right: 17%;
+  background: linear-gradient(
+    to bottom,
+    var(--umbrellaBaseLighter1) 70%,
+    var(--umbrellaBase) 100%
+  );
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  z-index: 2;
+}
+
+.umbrella.topFront::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 38%;
+  right: 38%;
+  background: linear-gradient(
+    to bottom,
+    var(--umbrellaBaseLighter2) 70%,
+    var(--umbrellaBase) 100%
+  );
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  z-index: 3;
+}
+
+.curve {
+  position: absolute;
+  bottom: 0;
+  background: var(--bgdark);
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  height: 5px;
+  z-index: 4;
+  &.c1,
+  &.c5 {
+    width: 17%;
+  }
+  &.c2,
+  &.c4 {
+    width: 21%;
+  }
+  &.c1 {
+    left: 0;
+  }
+  &.c2 {
+    left: 17%;
+  }
+  &.c3 {
+    left: 38%;
+    right: 38%;
+  }
+  &.c4 {
+    right: 17%;
+  }
+  &.c5 {
+    right: 0;
+  }
+}
+
+/*------------------------------------RAIN-----------------------------------*/
+
+/*define the container for the rain*/
+.rain {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.rain.back {
+  z-index: -1;
+  bottom: 60px;
+  opacity: 0.5;
+}
+
+.rain.hitTotoro {
+  z-index: 3;
+  width: 18%;
+  left: 45%;
+  bottom: var(--drop-distance-umbrella);
+}
+
+.raindrop {
+  position: absolute;
+  bottom: 100%;
+  width: 15px;
+  height: 120px;
+  pointer-events: none;
+  animation: raindrop 0.5s linear infinite;
+}
+
+@keyframes raindrop {
+  0% {
+    transform: translateY(0vh);
+  }
+  75% {
+    transform: translateY(var(--drop-distance));
+  }
+  100% {
+    transform: translateY(var(--drop-distance));
+  }
+}
+
+.raindropBody {
+  width: 1px;
+  height: 60%;
+  margin-left: 7px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0.25)
+  );
+  animation: raindropBody 0.5s linear infinite;
+}
+
+@keyframes raindropBody {
+  0% {
+    opacity: 1;
+  }
+  65% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.splat {
+  width: 15px;
+  height: 10px;
+  border-top: 2px dotted rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  opacity: 1;
+  transform: scale(0);
+  animation: splat 0.5s linear infinite;
+  display: block;
+}
+
+@keyframes splat {
+  0% {
+    opacity: 1;
+    transform: scale(0);
+  }
+  80% {
+    opacity: 1;
+    transform: scale(0);
+  }
+  90% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+}
